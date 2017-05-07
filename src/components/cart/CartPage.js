@@ -17,18 +17,22 @@ class CartPage extends React.Component {
       <div>
         <h1>Cart Page</h1>
         <table className="table">
-          <tr>
-            <th>Title</th>
-            <th>Price</th>
-          </tr>
-          {this.props.items.map((item, index) => {
-            return (
-              <tr key={index}>
-                <td>{item.title}</td>
-                <td>{item.price}</td>
-              </tr>
-            );
-          })}
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.items.map((item, index) => {
+              return (
+                <tr key={index}>
+                  <td>{item.title}</td>
+                  <td>{item.price}</td>
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     );

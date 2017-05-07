@@ -4,7 +4,9 @@ import routes from './routes';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
+
 import '../node_modules/bootstrap/scss/bootstrap.scss';
+import './assets/scss/app.scss';
 
 import configureStore from './store/configureStore';
 import * as booksActions from './actions/bookActions';
