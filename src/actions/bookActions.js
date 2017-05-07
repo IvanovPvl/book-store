@@ -24,9 +24,23 @@ export const createBookSuccess = book => {
   };
 };
 
+export const addToCartSuccess = item => {
+  return {
+    type: actionTypes.ADD_TO_CART_SUCCESS,
+    item,
+  };
+};
+
+export const fetchCartSuccess = items => {
+  return {
+    type: actionTypes.FETCH_CART_SUCCESS,
+    items,
+  };
+};
+
 export const fetchBooks = () => {
   return dispatch => {
-    return Axios.get(API_URL)
+    return Axios.get(`${API_URL}/book`)
       .then(response => {
         dispatch(fetchBooksSuccess(response.data));
       })
@@ -38,7 +52,7 @@ export const fetchBooks = () => {
 
 export const fetchBookById = bookId => {
   return dispatch => {
-    return Axios.get(`${API_URL}/${bookId}`)
+    return Axios.get(`${API_URL}/book/${bookId}`)
       .then(response => {
         dispatch(fetchBookByIdSuccess(response.data));
       })
@@ -48,11 +62,35 @@ export const fetchBookById = bookId => {
   };
 };
 
-export const createBook = (book) => {
+export const createBook = book => {
   return dispatch => {
-    return Axios.post(API_URL, book)
+    return Axios.post(`${API_URL}/book`, book)
       .then(response => {
         dispatch(createBookSuccess(response.data));
+      })
+      .catch(error => {
+        throw error;
+      });
+  };
+};
+
+export const addToCart = item => {
+  return dispatch => {
+    return Axios.post(`${API_URL}/cart`, item)
+      .then(response => {
+        dispatch(addToCartSuccess(response.data));
+      })
+      .catch(error => {
+        throw error;
+      });
+  };
+};
+
+export const fetchCart = () => {
+  return dispatch => {
+    return Axios.get(`${API_URL}/cart`)
+      .then(response => {
+        dispatch(fetchCartSuccess(response.data));
       })
       .catch(error => {
         throw error;

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import React, { PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
+import React from 'react';
 
 import BookDetails from './BookDetails';
 import * as bookActions from '../../actions/bookActions';
@@ -18,9 +17,18 @@ class BookDetailsPage extends React.Component {
     return (
       <div>
         <h1>Book Details Page</h1>
-        <BookDetails book={this.props.book} />
+        <BookDetails book={this.props.book} addToCart={this.addToCart.bind(this)} />
       </div>
     );
+  }
+
+  addToCart(book) {
+    const item = {
+      title: book.title,
+      price: book.price,
+    };
+
+    this.props.addToCart(item);
   }
 }
 
@@ -32,6 +40,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    addToCart:     item   => dispatch(bookActions.addToCart(item)),
     fetchBookById: bookId => dispatch(bookActions.fetchBookById(bookId)),
   }
 };
