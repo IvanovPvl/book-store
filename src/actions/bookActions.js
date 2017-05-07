@@ -1,27 +1,27 @@
 import Axios from 'axios';
 
-import * as actionTypes from './actionTypes'
-const API_URL = 'http://590e9914c32bf60011b096a1.mockapi.io/api/book';
+import * as actionTypes from './actionTypes';
+import { API_URL } from '../constants/common';
 
 export const fetchBooksSuccess = books => {
   return {
     type: actionTypes.FETCH_BOOKS_SUCCESS,
     books,
-  }
+  };
 };
 
 export const fetchBookByIdSuccess = book => {
   return {
     type: actionTypes.FETCH_BOOK_BY_ID_SUCCESS,
     book,
-  }
+  };
 };
 
 export const createBookSuccess = book => {
   return {
     type: actionTypes.CREATE_BOOK_SUCCESS,
     book,
-  }
+  };
 };
 
 export const fetchBooks = () => {
@@ -33,7 +33,7 @@ export const fetchBooks = () => {
       .catch(error => {
         throw error;
       });
-  }
+  };
 };
 
 export const fetchBookById = bookId => {
@@ -45,7 +45,7 @@ export const fetchBookById = bookId => {
       .catch(error => {
         throw error;
       });
-  }
+  };
 };
 
 export const createBook = (book) => {
@@ -57,5 +57,5 @@ export const createBook = (book) => {
       .catch(error => {
         throw error;
       });
-  }
+  };
 };

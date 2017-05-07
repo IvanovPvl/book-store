@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const BookDetails = props => {
+const BookDetails = ({book}) => {
   return (
     <div className="media">
       <div className="ml-3">
@@ -9,11 +9,11 @@ const BookDetails = props => {
         </a>
       </div>
       <div className="media-body">
-        <h4 className="mt-0">Title</h4>
+        <h4 className="mt-0">{book.title}</h4>
         <ul>
-          <li><strong>Author: </strong> Author</li>
-          <li><strong>Price: </strong> Price</li>
-          <li><strong>Year: </strong> Year</li>
+          <li><strong>Author: </strong> {book.author}</li>
+          <li><strong>Price: </strong> ${book.price}</li>
+          <li><strong>Year: </strong> {book.year}</li>
           <br/>
           <button className="btn btn-primary">Buy</button>
         </ul>
