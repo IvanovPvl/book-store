@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-import BookForm from './BookForm';
+import BookForm from '../../components/book/BookForm';
 import * as bookActions from '../../actions/bookActions';
 
 class Book extends React.Component {
