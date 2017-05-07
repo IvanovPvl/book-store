@@ -23,7 +23,6 @@ class Book extends React.Component {
             <thead>
               <tr>
                 <td>Title</td>
-                <td></td>
               </tr>
             </thead>
             <tbody>

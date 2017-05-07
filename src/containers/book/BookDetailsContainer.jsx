@@ -16,7 +16,6 @@ class BookDetailsPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Book Details Page</h1>
         <BookDetails book={this.props.book} addToCart={this.addToCart.bind(this)} />
       </div>
     );
